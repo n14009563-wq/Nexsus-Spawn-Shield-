@@ -1,0 +1,22 @@
+name: NexusSpawnShield
+version: '${project.version}'
+main: com.nexusuniverse.spawnshield.NexusSpawnShield
+api-version: '1.21'
+author: RealSociety
+description: Overrides every other plugin's decision inside a huge fixed-coordinate zone around world spawn -- functional blocks (doors, buttons, chests, ender chests, levers, everything) always work for everyone, but killing, breaking, and placing are blocked for everyone except an exempt list of players.
+softdepend: [NexusHeartbeat]
+
+commands:
+  nexusspawnshield:
+    description: Manage the world-spawn override zone -- status, exempt list, personal bypass, reload.
+    aliases: [nss, spawnshield]
+    usage: /nexusspawnshield <status|reload|bypass|exempt add <name>|exempt remove <name>|exempt list>
+    permission: nexusspawnshield.admin
+
+permissions:
+  nexusspawnshield.admin:
+    description: Manage NexusSpawnShield -- view status, edit the exempt list, toggle a personal bypass, reload config.
+    default: op
+  nexusspawnshield.bypass:
+    description: Personally bypass the spawn-zone kill/break/place restrictions (toggle on with /nexusspawnshield bypass). Defaults on for ops, same as the admin permission.
+    default: op
